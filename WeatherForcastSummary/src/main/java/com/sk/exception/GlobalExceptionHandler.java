@@ -33,15 +33,21 @@ public class GlobalExceptionHandler {
 		 
 		return new ResponseEntity<MyErrorEntity>(re , HttpStatus.BAD_REQUEST);
 	}
+
+	@ExceptionHandler(RestTemplateNotFoundException.class)
+	public ResponseEntity<MyErrorEntity> GeneralExceptionHandler(RestTemplateNotFoundException se,WebRequest wr){
+		MyErrorEntity error = new MyErrorEntity();
+		error.setDescription(wr.getDescription(false));
+		error.setMessage(se.getMessage());
+		error.setSetDateTime(LocalDateTime.now());
+		return new ResponseEntity<>(error , HttpStatus.BAD_REQUEST) ;
+	}
+	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<String> GeneralExceptionHandler(Exception se){
 		return new ResponseEntity<>(se.getMessage() , HttpStatus.BAD_REQUEST) ;
 	}
-	
-	
-	
-	
-	
+
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ResponseEntity<String> NoHandelerExceptionHandler(NoHandlerFoundException se){
 		return new ResponseEntity<>("There is no handler for this endpoint" , HttpStatus.BAD_REQUEST) ;
