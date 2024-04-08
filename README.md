@@ -1,30 +1,36 @@
 # DiceAssignment
 ## Weather Forecast API Server
+## Purpose
+ Weather Forecast is a weather update application designed to provide users with real-time weather information after registration and login.
 
-## Introduction
-This project is a Spring Boot-based server that integrates with the Weather API from Rapid API. It provides RESTful APIs to retrieve weather forecast summaries for various cities.
+## Tech Stack
+- Java
+- MySQL
+- Spring Boot
+- Spring Security
+- Swagger UI
 
-## Features
-- Exposes RESTful APIs to retrieve weather forecast summaries.
-- Implements header-based authentication with random client ID and client secret.
+## Functionality
+### Registration
+- Users can sign up for an account by providing necessary details.
+- Registration includes fields such as username, email, and password.
 
-## Installation
-1. Clone the repository: `git clone https://github.com/your_username/weather-forecast-api.git`
-2. Navigate to the project directory: `cd weather-forecast-api`
-3. Build the project: `mvn clean install`
+### Login
+- Registered users can securely log in to their accounts.
+- Authentication is handled using Spring Security.
 
-## Configuration
-- Modify `application.properties` to configure server settings, such as port and database connection.
+### Weather Updates
+- Upon successful login, users can access weather updates.
+- Weather information is fetched from external sources or APIs.
+- Users can view the weather forecast for their desired location.
 
-## Usage
-- Start the server: `java -jar target/weather-forecast-api.jar`
-- Access the API documentation at `https://diceassignment-production-b41b.up.railway.app/swagger-ui/index.html`
+## Hosting
+- The application is hosted on Railway.app.
+- Access the application through the provided host link: [WeatheroreCasting Host Link](https://dice-production-a311.up.railway.app/swagger-ui/index.html)
 
-## RESTful APIs
-### Authentication
-- Header-based authentication with random client ID and client secret.
+## Additional Notes
+- Ensure MySQL is properly configured for the application to function correctly.
+- Continuous monitoring and updating of weather data sources may be required for accurate updates.
+- Consider implementing additional features such as location-based weather updates or personalized notifications based on user preferences for future iterations.
 
-### Get Weather Forecast Summary by City Name
-- Endpoint: `GET /weather/getWeatherSummary/{city}`
-- Description: Retrieves the weather forecast summary for the specified city.
-- Example Request:
+
